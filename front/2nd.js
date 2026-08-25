@@ -204,33 +204,35 @@ document.getElementById("profilePic").addEventListener("change", function () {
 
 function creat() {
 
-const btn=document.getElementById("4");
-if (btn.disabled) {
+    const btn = document.getElementById("4");
+
+    if (btn.disabled) {
         return;
     }
-     btn.disabled = true;
-    btn.innerText = "Creating...";
-    file =
+
+    const file =
         document.getElementById("profilePic").files[0];
 
-
-    username =
-        document.getElementById("name").value;
+    const username =
+        document.getElementById("name").value.trim();
 
     const broname =
-        document.getElementById("broname").value;
+        document.getElementById("broname").value.trim();
 
     const commentText =
-        document.getElementById("comment").value;
-    
-if (username === "" || broname === "" || commentText === "") {
-    alert("Please fill all three fields first.");
-    return;
-}
+        document.getElementById("comment").value.trim();
 
+    // Pehle validation
+    if (username === "" || broname === "" || commentText === "") {
+        alert("Please fill all three fields first.");
+        return;
+    }
+
+    // Validation successful hone ke baad hi button disable hoga
+    btn.disabled = true;
+    btn.innerText = "Creating...";
 
     const formData = new FormData();
-
 
     if (file) {
         formData.append("profilePic", file);
@@ -239,7 +241,6 @@ if (username === "" || broname === "" || commentText === "") {
     formData.append("name", username);
     formData.append("broname", broname);
     formData.append("comment", commentText);
-
 
     fetch("https://rakhi-website-ja55.onrender.com/userprofile", {
         method: "POST",
@@ -252,21 +253,25 @@ if (username === "" || broname === "" || commentText === "") {
 
         unique_id = data.unique_id;
 
-
         document.getElementById("popup").style.display = "none";
-
         document.getElementById("main").style.display = "block";
 
-        
         loadUsers();
 
     })
     .catch(error => {
+
         console.error("POST ERROR:", error);
+
         btn.disabled = false;
         btn.innerText = "Create Profile ✨";
     });
 }
+
+
+
+
+     
 let postid = null;
 
 function pop(id) {
