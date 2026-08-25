@@ -194,7 +194,11 @@ h4 {
     margin-bottom: 2%;
     color: black;
     font-weight: bolder;
-    background-color: transparent;
+    background: linear-gradient(
+        135deg,
+        #F8EBD8,
+        #F3D7B5
+    );
     border: 0;
  }
 

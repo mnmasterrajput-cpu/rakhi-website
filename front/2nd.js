@@ -129,7 +129,7 @@ shareButton.textContent = "share";
 shareButton.addEventListener("click", async function () {
 
     const link =
-        "http://localhost:5500/2nd.html?post=" + user.unique_id;
+        "https://rakhi-website.onrender.com/2nd.html?post=" + user.unique_id;
 
     const message =
         user.name + " ne aapke liye kuch bheja hai ❤️\n\n" + link;
@@ -204,6 +204,12 @@ document.getElementById("profilePic").addEventListener("change", function () {
 
 function creat() {
 
+const btn=document.getElementById("4");
+if (btn.disabled) {
+        return;
+    }
+     btn.disabled = true;
+    btn.innerText = "Creating...";
     file =
         document.getElementById("profilePic").files[0];
 
@@ -246,13 +252,14 @@ function creat() {
 
         document.getElementById("main").style.display = "block";
 
-
         
         loadUsers();
 
     })
     .catch(error => {
         console.error("POST ERROR:", error);
+        btn.disabled = false;
+        btn.innerText = "Create Profile ✨";
     });
 }
 let postid = null;
@@ -420,7 +427,7 @@ function addUsers(users) {
         shareButton.addEventListener("click", async function () {
 
             const link =
-                "http://localhost:5500/2nd.html?post=" + user.unique_id;
+                "https://rakhi-website.onrender.com/2nd.html?post=" + user.unique_id;
 
             const message =
                 user.name + " ne aapke liye kuch bheja hai ❤️\n\n" + link;
@@ -460,7 +467,7 @@ function addUsers(users) {
         addp.appendChild(replyButton);
         addp.appendChild(shareButton);
 
-        // IMPORTANT: yahan innerHTML="" nahi karna
+        
         mid.appendChild(addp);
     });
 }
