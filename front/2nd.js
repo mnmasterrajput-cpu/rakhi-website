@@ -13,7 +13,7 @@ function lodemore() {
 
     offset += 5;
 
-    fetch("http://localhost:8000/getdata?offset=" + offset)
+    fetch("https://rakhi-website-ja55.onrender.com/getdata?offset=" + offset)
         .then(response => response.json())
         .then(users => {
 
@@ -44,7 +44,7 @@ function loadUsers() {
 
     console.log("LOAD USERS START");
 
-    fetch("http://localhost:8000/getdata")
+    fetch("https://rakhi-website-ja55.onrender.com/getdata")
         .then(response => {
 
             console.log("GETDATA RESPONSE:", response.status);
@@ -230,7 +230,7 @@ function creat() {
     formData.append("comment", commentText);
 
 
-    fetch("http://localhost:8000/userprofile", {
+    fetch("https://rakhi-website-ja55.onrender.com/userprofile", {
         method: "POST",
         body: formData
     })
@@ -264,7 +264,7 @@ function pop(id) {
     document.getElementById("main").style.display = "none";
     document.getElementById("pop").style.display = "block";
 
-    fetch("http://localhost:8000/allcomment", {
+    fetch("https://rakhi-website-ja55.onrender.com/allcomment", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -315,7 +315,7 @@ function docomment() {
 
     document.querySelector(".body").appendChild(new2div);
 
-    fetch("http://localhost:8000/comment", {
+    fetch("https://rakhi-website-ja55.onrender.com/comment", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
