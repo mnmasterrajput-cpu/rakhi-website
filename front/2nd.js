@@ -222,6 +222,11 @@ if (btn.disabled) {
 
     const commentText =
         document.getElementById("comment").value;
+    
+if (username === "" || broname === "" || commentText === "") {
+    alert("Please fill all three fields first.");
+    return;
+}
 
 
     const formData = new FormData();
